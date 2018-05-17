@@ -1,0 +1,17 @@
+[Unit]
+Description=Selenoid UI Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker rm selenoid-ui
+ExecStart=/usr/bin/docker run --name selenoid-ui \
+    -p {{ selenoid_ui_port }}:{{ selenoid_ui_port }} \
+    --link selenoid \
+    aerokube/selenoid-ui \
+    --selenoid-uri http://selenoid:{{ selenoid_port }}
+ExecStop=/usr/bin/docker stop selenoid-ui
+
+[Install]
+WantedBy=multi-user.target

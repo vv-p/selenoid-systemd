@@ -1,0 +1,24 @@
+---
+
+- name: Create systemd unit file for Selenoid
+  template:
+    src: selenoid.service.j2
+    dest: /etc/systemd/system/selenoid.service
+
+- name: Create Selenoid configuration directory
+  file:
+    path: /etc/selenoid
+    state: directory
+    mode: 0775
+
+- name: Copy browsers config
+  template:
+    src: browsers.json.j2
+    dest: /etc/selenoid/browsers.json
+
+- name: Enable and run Selenoid service
+  systemd:
+    name: selenoid
+    state: started
+    enabled: yes
+    daemon_reload: yes
