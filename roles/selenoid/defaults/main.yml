@@ -1,0 +1,23 @@
+vnc: false
+shmSize: 268435456
+tmpSize: 512m
+varSize: 128m
+timezone: "Europe/Moscow"
+selenoid_port: 4444
+selenoid_ui_port: 8080
+browsers:
+  - name: "chrome"
+    default: "66.0"
+    versions:
+      - "66.0"
+      - "65.0"
+  - name: "firefox"
+    default: "59.0"
+    versions:
+      - "59.0"
+      - "58.0"
+  - name: "opera"
+    default: "52.0"
+    versions:
+      - "52.0"
+      - "51.0"
