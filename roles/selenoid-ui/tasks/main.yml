@@ -1,5 +1,9 @@
 ---
 
+- name: Pull selenoid-ui docker image
+  docker_image:
+    name: aerokube/selenoid-ui:latest
+
 - name: Create systemd unit file for Selenoid UI
   template:
     src: selenoid-ui.service.j2
