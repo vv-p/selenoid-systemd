@@ -9,7 +9,7 @@ ExecStartPre=-/usr/bin/docker rm selenoid-ui
 ExecStart=/usr/bin/docker run --name selenoid-ui \
     -p {{ selenoid_ui_port }}:{{ selenoid_ui_port }} \
     --link selenoid \
-    aerokube/selenoid-ui \
+    aerokube/selenoid-ui:latest \
     --selenoid-uri http://selenoid:{{ selenoid_port }}
 ExecStop=/usr/bin/docker stop selenoid-ui
 
