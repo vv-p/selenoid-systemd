@@ -8,7 +8,7 @@ Restart=always
 ExecStartPre=-/usr/bin/docker rm selenoid
 ExecStart=/usr/bin/docker run --name selenoid \
     -p {{ selenoid_port }}:{{ selenoid_port }} \
-    -e TZ={{ timezone }} \
+    -e TZ={{ selenoid_timezone }} \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /etc/selenoid/:/etc/selenoid/:ro \
     aerokube/selenoid:latest-release

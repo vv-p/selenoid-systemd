@@ -1,11 +1,12 @@
-vnc: false
-shmSize: 268435456
-tmpSize: 512m
-varSize: 128m
-timezone: "Europe/Moscow"
+selenoid_ui: false
+selenoid_vnc: false
+selenoid_shmSize: 268435456
+selenoid_tmpSize: 512m
+selenoid_varSize: 128m
+selenoid_timezone: "Europe/Moscow"
 selenoid_port: 4444
 selenoid_ui_port: 8080
-browsers:
+selenoid_browsers:
   - name: "chrome"
     default: "66.0"
     versions:

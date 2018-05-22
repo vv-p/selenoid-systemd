@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    - selenoid_ui: true
+    - vnc: true
   roles:
     - selenoid

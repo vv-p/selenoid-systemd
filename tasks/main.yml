@@ -5,7 +5,7 @@
 
 - name: Pull chosen browser docker images
   docker_image:
-    name: "selenoid/{% if vnc %}vnc:{{ item.0.name }}_{{ item.1 }}{% else %}{{ item.0.name }}:{{ item.1 }}{% endif %}"
+    name: "selenoid/{% if selenoid_vnc %}vnc:{{ item.0.name }}_{{ item.1 }}{% else %}{{ item.0.name }}:{{ item.1 }}{% endif %}"
   with_subelements:
     - "{{ browsers }}"
     - versions
@@ -32,3 +32,22 @@
     state: started
     enabled: yes
     daemon_reload: yes
+
+- name: Pull selenoid-ui docker image
+  docker_image:
+    name: aerokube/selenoid-ui:latest
+  when: selenoid_ui
+
+- name: Create systemd unit file for Selenoid UI
+  template:
+    src: selenoid-ui.service.j2
+    dest: /etc/systemd/system/selenoid-ui.service
+  when: selenoid_ui
+
+- name: Enable and run Selenoid UI service
+  systemd:
+    name: selenoid-ui
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  when: selenoid_ui
