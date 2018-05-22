@@ -3,7 +3,8 @@ galaxy_info:
   description: Install and run selenoid and selenoid-ui on a single host with systemd
   license: MIT
   min_ansible_version: 2.3.1
-  - name: CentOS
+  platforms:
+  - name: EL
     versions:
      - 7
   galaxy_tags:
