@@ -1,13 +1,10 @@
 ---
 language: python
-python: "2.7"
-sudo: required
 dist: trusty
-services:
-  - docker
 
 install:
-  - sudo pip install docker ansible
+  - pip install ansible
 
 script:
-  - ansible-playbook --syntax-check selenoid.yml
+  - ansible-playbook --syntax-check -i hosts selenoid.yml
+
