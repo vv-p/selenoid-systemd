@@ -7,7 +7,7 @@
   docker_image:
     name: "selenoid/{% if selenoid_vnc %}vnc:{{ item.0.name }}_{{ item.1 }}{% else %}{{ item.0.name }}:{{ item.1 }}{% endif %}"
   with_subelements:
-    - "{{ browsers }}"
+    - "{{ selenoid_browsers }}"
     - versions
 
 - name: Create systemd unit file for Selenoid
