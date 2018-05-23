@@ -5,4 +5,4 @@
     - selenoid_ui: true
     - vnc: true
   roles:
-    - { role: ../../selenoid-systemd }
+    - selenoid-systemd
