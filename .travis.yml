@@ -9,7 +9,7 @@ env:
 
 before_install:
   - 'sudo docker pull ${distribution}:${version}'
-  - 'sudo docker build --no-cache --rm --tag=${distribution}-${version}:ansible https://raw.githubusercontent.com/drhelius/travis-ansible-demo/master/travis/Dockerfile.{distribution}-${version}'
+  - 'sudo docker build --no-cache --rm --tag=${distribution}-${version}:ansible https://raw.githubusercontent.com/drhelius/travis-ansible-demo/master/travis/Dockerfile.${distribution}-${version}'
 
 install:
   - 'sudo pip install ansible docker'
