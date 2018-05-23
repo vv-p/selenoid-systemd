@@ -10,6 +10,7 @@ env:
 before_install:
   - 'sudo docker pull ${distribution}:${version}'
   - 'git clone --depth=50 --branch=master https://github.com/drhelius/travis-ansible-demo.git travis-ansible-demo/travis'
+  - ls -l
   - 'sudo docker build --no-cache --rm --file=travis-ansible-demo/travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
 
 install:
