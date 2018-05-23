@@ -84,7 +84,7 @@ You can overwrite it in your playbook file:
           - "65.0"
 
   roles:
-    - selenoid
+    - selenoid-systemd
 ```
 
 or pass it as command-line arguments:
